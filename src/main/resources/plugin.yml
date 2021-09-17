@@ -1,0 +1,19 @@
+name: Gman
+version: '${project.version}'
+main: net.github.rpbeee.gman.Gman
+authors: [ RPbeee ]
+description: GUIを使ってマニュアルを表示するプラグイン
+commands:
+  man:
+    description: マニュアルのメインコマンド。
+    permission: Gman.man
+    permission-message: "Sorry, but you don't have a permission"
+permissions:
+  Gman.man:
+    default: op
+    description: Gman's main permission.
+  Gman.*:
+    default: op
+    description: Gman's all permission.
+    children:
+      Gman.man: true
