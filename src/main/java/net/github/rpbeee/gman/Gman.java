@@ -18,7 +18,7 @@ public final class Gman extends JavaPlugin {
         if (!mandir.exists()) {
             mandir.mkdir();
         }
-        Bukkit.getPluginCommand("man").setExecutor(new CmdExecuter());
+        Bukkit.getPluginCommand("man").setExecutor(new CmdExecutor());
         Bukkit.getServer().getPluginManager().registerEvents(new InventoryClick(), this);
     }
 
