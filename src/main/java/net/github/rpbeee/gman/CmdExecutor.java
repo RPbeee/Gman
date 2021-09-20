@@ -15,6 +15,8 @@ import org.bukkit.plugin.Plugin;
 
 public class CmdExecutor implements CommandExecutor {
 
+    private Inventory inv;
+
     String premsg = ChatColor.GREEN+"[Gman] "+ChatColor.WHITE;
 
     public void argserror(CommandSender sender, boolean ecode) {
@@ -37,13 +39,17 @@ public class CmdExecutor implements CommandExecutor {
         //main gui code to here.
         Player player = (Player)sender;
         int i;
-        Inventory inv;
-        inv = Bukkit.createInventory(null,54,ChatColor.DARK_PURPLE+"Gman - GUI Manual");
+        this.inv = Bukkit.createInventory(null,54,"Gman");
+
+        ItemStack glass = new ItemStack(Material.STAINED_GLASS_PANE);
+        ItemMeta glassMeta = glass.getItemMeta();
+        glassMeta.setDisplayName("ALPHA");
+        glass.setItemMeta(glassMeta);
 
         for (i=0; i<54; i++) {
-            inv.setItem(i,new ItemStack(Material.STAINED_GLASS_PANE));
+            this.inv.setItem(i,glass);
         }
-        player.openInventory(inv);
+        player.openInventory(this.inv);
         sender.sendMessage(premsg+"新規インベントリを開きました");
 
         return true;
