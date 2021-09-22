@@ -19,12 +19,12 @@ public class InventoryClick implements Listener {
         if (itemName==null) {
             return;
         }
-        if (itemName.equals("ALPHA")) {
+        event.setCancelled(true);
+        if (itemName.contains("<M>")) {
             //メニューをクリックしたことを検知
             Player player = (Player) event.getWhoClicked();
             player.sendMessage("You clicked the inventory!");
             player.sendMessage("You clicked the slot No." + event.getSlot());
-            event.setCancelled(true);
         }
     }
 

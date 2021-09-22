@@ -15,7 +15,7 @@ public final class Gman extends JavaPlugin {
         FileConfiguration config = getConfig();
         File directorys;
         for (String key : config.getConfigurationSection("manuals").getKeys(false)) {
-            directorys = new File(this.getDataFolder()+"/manuals/"+config.getString("manuals."+key)+"/");
+            directorys = new File(this.getDataFolder()+"/manuals/"+key+"/");
             if(!directorys.exists()) {
                 directorys.mkdir();
             }
